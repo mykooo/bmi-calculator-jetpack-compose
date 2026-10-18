@@ -9,35 +9,47 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+    primary = IndigoDarkPrimary,
+    onPrimary = Slate900,
+    primaryContainer = Color(0xFF312E81),
+    onPrimaryContainer = IndigoContainer,
+    secondary = Slate400,
+    onSecondary = Slate900,
+    background = DarkBackground,
+    onBackground = DarkOnBackground,
+    surface = DarkSurface,
+    onSurface = DarkOnSurface,
+    surfaceVariant = Color(0xFF334155),
+    onSurfaceVariant = Slate400,
+    outline = DarkOutline
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
+    primary = IndigoPrimary,
+    onPrimary = IndigoOnPrimary,
+    primaryContainer = IndigoContainer,
+    onPrimaryContainer = IndigoOnContainer,
+    secondary = Slate600,
+    onSecondary = White,
+    background = Slate50,
+    onBackground = Slate900,
+    surface = White,
+    onSurface = Slate900,
+    surfaceVariant = Slate100,
+    onSurfaceVariant = Slate600,
+    outline = Slate200,
+    outlineVariant = Slate200
 )
 
 @Composable
 fun BmiA2Theme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    // Set default dynamicColor to false to maintain exact brand colors #F8FAFC and #6366F1
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
